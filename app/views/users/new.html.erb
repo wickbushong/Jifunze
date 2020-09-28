@@ -11,6 +11,10 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
     <br>
-    <%= f.submit %>
+    <%= f.label :instructor, "Check this box if you are an instructor" %>
+    <%= f.check_box :instructor %>
     <br>
+    <br>
+    <%= f.submit %>
+    
 <% end %>
