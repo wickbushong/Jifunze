@@ -1,0 +1,14 @@
+<h2>Log In!</h2>
+
+<%= form_for @user do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <br>
+    <%= f.submit %>
+    
+<% end %>
