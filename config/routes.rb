@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   get 'signup' => 'users#new'
-  # post 'signup' => 'users#create'
+  post 'signup' => 'users#create'
   get 'login' => 'session#new'
+  post 'login' => 'session#create'
 
   resources :users, except: [:new]
 end
