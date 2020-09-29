@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_201833) do
 
   create_table "lessons", force: :cascade do |t|
     t.integer "instructor_id"
-    t.integer "student_id"
+    t.integer "student_id", default: 1
     t.datetime "time"
     t.integer "duration"
     t.string "subject"
