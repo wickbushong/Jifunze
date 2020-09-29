@@ -13,7 +13,12 @@ class LessonsController < ApplicationController
     end
 
     def index
-        @lessons = Lesson.available
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            @lessons = @user.given_lessons.available
+        else
+            @lessons = Lesson.available
+        end
     end
 
 end

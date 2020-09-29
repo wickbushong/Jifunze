@@ -1,4 +1,8 @@
-<h2>Available Lesson Slots</h2>
+<% if @user %>
+    <h2><%= @user.name %>'s Available Lesson Slots</h2>
+<% else %>
+    <h2>All Available Lessons</h2>
+<% end %>
 
 <table id="lessons">
     <tr>
