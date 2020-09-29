@@ -21,19 +21,35 @@ User.create(
 )
 
 User.create(
-    name: "first_student",
-    email: "first@school.edu",
+    name: "second_student",
+    email: "second@school.edu",
     password: "password",
     instructor: false
 )
 
-Lesson.new(
-    instructor_id: 1,
+User.create(
+    name: "second_instructor",
+    email: "teacher2@school.edu",
+    password: "password",
+    instructor: true
+)
+
+Lesson.create(
+    instructor_id: 2,
     time: Time.new(2020, 12, 25, 5, 30),
     duration: 30,
     subject: "Physics",
     location: "library (restricted section)",
     notes: "Bring your calculator"
+)
+
+Lesson.create(
+    instructor_id: 4,
+    time: Time.new(2020, 11, 20, 11, 30),
+    duration: 30,
+    subject: "Spanish",
+    location: "TBD",
+    notes: "Hola. Que tal"
 )
 
 
