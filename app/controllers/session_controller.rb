@@ -5,20 +5,19 @@ class SessionController < ApplicationController
     end
 
     def create
-        if auth
-            @user = find_or_create_from_facebook
-        elsif User.find_by(name: params[:user][:name])
-            @user = User.find_by(name: params[:user][:name])
-        else
-            render :new
-        end
-
+        @user = User.find_by(name: params[:user][:name]) || User.new
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to user_path(@user) 
         else
             render :new
         end
+    end
+
+    def create_from_facebook
+        @user = find_or_create_from_facebook
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
 
     def destroy

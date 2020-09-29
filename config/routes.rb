@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   post 'logout' => 'session#destroy'
 
-  get '/auth/facebook/callback' => 'session#create'
+  get '/auth/facebook/callback' => 'session#create_from_facebook'
 
   resources :users, only: [:show]
 end
