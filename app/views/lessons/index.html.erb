@@ -9,7 +9,7 @@
     </tr>
     <% @lessons.each do |l| %>
     <tr>
-        <td><%= l.instructor %></td>
+        <td><%= l.instructor.name %></td>
         <td><%= l.subject %></td>
         <td><%= l.time.strftime("%A, %d %b %Y at%l:%M %p %Z") %></td>
         <td>INSERT BOOKING LINK</td>

@@ -18,6 +18,23 @@
     padding-top: 70px;
     padding-bottom: 30px;
   }
+
+  #lessons {
+    width: 100%;
+  }
+
+  #lessons td, #lessons th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #lessons th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: gray;
+    color: white;
+  }
   
   .theme-dropdown .dropdown-menu {
     position: static;
@@ -51,3 +68,4 @@
 .field_with_errors input {
     border-color: red;
   }
+
