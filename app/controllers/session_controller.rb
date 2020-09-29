@@ -6,10 +6,12 @@ class SessionController < ApplicationController
 
     def create
         @user = User.find_by(name: params[:user][:name]) || User.new
+        binding.pry
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user) 
         else
+            @user.errors.messages[:invalid] = ["username or password"]
             render :new
         end
     end
