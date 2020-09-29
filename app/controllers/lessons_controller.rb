@@ -13,7 +13,7 @@ class LessonsController < ApplicationController
     end
 
     def index
-        @lessons = Lesson.all
+        @lessons = Lesson.available
     end
 
 end

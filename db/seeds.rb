@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(
+    name: "dummy_student",
+    email: "fake@school.edu",
+    password: "password",
+    instructor: false
+)
+
+User.create(
     name: "wick",
     email: "wickbushong@gmail.com",
     password: "password",
@@ -20,11 +27,13 @@ User.create(
     instructor: false
 )
 
-User.create(
-    name: "dummy_student",
-    email: "fake@school.edu",
-    password: "password",
-    instructor: false
+Lesson.new(
+    instructor_id: 1,
+    time: Time.new(2020, 12, 25, 5, 30),
+    duration: 30,
+    subject: "Physics",
+    location: "library (restricted section)",
+    notes: "Bring your calculator"
 )
 
 

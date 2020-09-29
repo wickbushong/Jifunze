@@ -1,0 +1,18 @@
+<h2>Available Lesson Slots</h2>
+
+<table id="lessons">
+    <tr>
+        <th>Instructor</th>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Booking Link</th>
+    </tr>
+    <% @lessons.each do |l| %>
+    <tr>
+        <td><%= l.instructor %></td>
+        <td><%= l.subject %></td>
+        <td><%= l.time.strftime("%A, %d %b %Y at%l:%M %p %Z") %></td>
+        <td>INSERT BOOKING LINK</td>
+    </tr>
+    <% end %>
+</table>
