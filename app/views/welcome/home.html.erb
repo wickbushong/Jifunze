@@ -1,7 +1,9 @@
-<h1>Welcome to Jifunze</h1>
-
-<%= link_to "Sign up", signup_path %>
-<br>
-<%= link_to "Log in with Facebook", "/auth/facebook" %>
-<br>
-<%= link_to "Log in", login_path %>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Jifunze!</h1>
+  <p class="lead">"jifunze" means "learn" in Swahili. If you're a student looking for a tutor, or a tutor looking for students, you've come to the right place.</p>
+  <hr class="my-4">
+  <p>Enter any way you'd like.</p>
+  <a class="btn btn-outline-success" href="<%= signup_path %>" role="button">Sign Up</a>
+  <a class="btn btn-outline-success" href="<%= login_path %>" role="button">Log In</a>
+  <a class="btn btn-outline-primary" href="/auth/facebook" role="button">Log In With Facebook</a>
+</div>
