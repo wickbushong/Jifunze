@@ -1,28 +1,51 @@
-<h1>Sign up!</h1>
+<br>
+<div class="container">
+    <h1>Let's get you signed up!</h1>
 
-<% if @user.errors %>
-    <ul>
-    <% @user.errors.full_messages.each do |e| %>
-        <li><%= e %></li>
+    <% if @user.errors %>
+        <ul>
+        <% @user.errors.full_messages.each do |e| %>
+            <li><%= e %></li>
+        <% end %>
+        </ul>
     <% end %>
-    </ul>
-<% end %>
 
-<%= form_for @user, url: '/signup' do |f| %>
+    <%= form_for @user, url: '/signup' do |f| %>
+        <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "username" %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.text_field :email, class: "form-control", placeholder: "email" %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+        </div>
+        
+        <%= f.check_box :instructor, class: "form-check-input" %>
+        <%= f.label :instructor, class: "form-check-label" %>
+        <br>
+        <br>
+        <%= f.submit %>
+    <% end %>
+</div>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.label :instructor, "Check this box if you are an instructor" %>
-    <%= f.check_box :instructor %>
-    <br>
-    <br>
-    <%= f.submit %>
-    
-<% end %>
+<div class="container">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
