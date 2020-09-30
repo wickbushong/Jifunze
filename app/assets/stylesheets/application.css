@@ -10,66 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
+ *= require bootstrap-datetimepicker
  */
 
- *= require bootstrap
- *= require bootstrap-datetimepicker
 
-
- body {
-    padding-top: 70px;
-    padding-bottom: 30px;
-  }
-
-  #lessons {
-    width: 100%;
-  }
-
-  #lessons td, #lessons th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  #lessons th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: gray;
-    color: white;
-  }
-  
-  .theme-dropdown .dropdown-menu {
-    position: static;
-    display: block;
-    margin-bottom: 20px;
-  }
-  
-  /* .theme-showcase > p > .btn {
-    margin: 5px 0;
-  } */
-  
-  .center {
-    text-align: center;
-  }
-  
-  .pic,
-  .info {
-    padding: 20px;
-    display: inline-block;
-    background-color: #eeeeee;
-    border-radius: 7px;
-    vertical-align: middle;
-    margin: 10px;
-  }
-  
-  .info {
-    height: 290px;
-    text-align: left;
-  }
-
-.field_with_errors input {
-    border-color: red;
-  }
 
