@@ -19,8 +19,8 @@
         <tr>
             <th class="text-center" scope="row"><%= l.subject %></th>
             <td class="text-center"><%= link_to l.instructor.name, user_lessons_path(l.instructor)%></td>
-            <td class="text-center"><%= l.time.strftime("%A, %d %b %Y at%l:%M %p %Z") %></td>
-            <td class="text-center"><a class="btn btn-outline-success" href="<%= signup_path %>" role="button">tell me more</a></td>
+            <td class="text-center"><%= l.time.strftime("%A, %d %b %Y at %l:%M %p %Z") %></td>
+            <td class="text-center"><a class="btn btn-outline-success" href="<%= lesson_path(l) %>" role="button">tell me more</a></td>
             <td class="text-center"><a class="btn btn-outline-success" href="<%= login_path %>" role="button">book now</a></td>
         </tr>
         <% end %>
