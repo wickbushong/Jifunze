@@ -3,6 +3,7 @@ class User < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
     scope :instructors, -> { where("instructor == true") }
+    scope :students, -> { where("instructor == false") }
 
     # has_many :lesson_students, foreign_key: :lesson_student_id
     # has_many :taken_lessons, through: :lesson_students
