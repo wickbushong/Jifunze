@@ -4,24 +4,24 @@
     <h2>All Available Lessons</h2>
 <% end %>
 
-<table class="table table-bordered">
+<table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Subject</th>
-            <th scope="col">Instructor</th>
-            <th scope="col">Time</th>
-            <th scope="col">Info</th>
-            <th scope="col">Book</th>
+            <th class="text-center" scope="col">Subject</th>
+            <th class="text-center" scope="col">Instructor</th>
+            <th class="text-center" scope="col">Time</th>
+            <th class="text-center" scope="col">Info</th>
+            <th class="text-center" scope="col">Book</th>
         </tr>
     </thead>
     <tbody>
         <% @lessons.each do |l| %>
         <tr>
-            <th scope="row"><%= l.subject %></th>
-            <td><%= link_to l.instructor.name, user_lessons_path(l.instructor)%></td>
-            <td><%= l.time.strftime("%A, %d %b %Y at%l:%M %p %Z") %></td>
-            <td><a class="btn btn-outline-success" href="<%= signup_path %>" role="button">tell me more</a></td>
-            <td><a class="btn btn-outline-success" href="<%= login_path %>" role="button">book now</a></td>
+            <th class="text-center" scope="row"><%= l.subject %></th>
+            <td class="text-center"><%= link_to l.instructor.name, user_lessons_path(l.instructor)%></td>
+            <td class="text-center"><%= l.time.strftime("%A, %d %b %Y at%l:%M %p %Z") %></td>
+            <td class="text-center"><a class="btn btn-outline-success" href="<%= signup_path %>" role="button">tell me more</a></td>
+            <td class="text-center"><a class="btn btn-outline-success" href="<%= login_path %>" role="button">book now</a></td>
         </tr>
         <% end %>
     </tbody>
