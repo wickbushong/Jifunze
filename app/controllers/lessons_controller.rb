@@ -1,11 +1,14 @@
 class LessonsController < ApplicationController
 
     def new
-
+        if !current_user.instructor
+            redirect_to lessons_path
+        end
+        @lesson = Lesson.new
     end
 
     def create
-
+        binding.pry
     end
 
     def show
