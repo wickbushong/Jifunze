@@ -3,11 +3,7 @@
 <%= form_for @lesson do |f| %>
     <%= f.label :subject %>
     <%= f.text_field :subject %>
-    <%=  %>
-    <%=  %>
-    <%=  %>
-    <%=  %>
-    <%=  %>
+    <%= f.datetime_field :time, class: "form-control datetimepicker-input"  %>
     <%= f.submit %>
 <% end %>
 
