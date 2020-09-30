@@ -5,6 +5,6 @@ class Lesson < ApplicationRecord
     scope :available, -> { where("booked == false") }
 
     belongs_to :instructor, class_name: "User"
-    belongs_to :student, class_name: "User"
+    belongs_to :student, class_name: "User", optional: true
 
 end
