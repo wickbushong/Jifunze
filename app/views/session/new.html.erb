@@ -5,8 +5,8 @@
     <% if !@user.errors.messages.empty? %>
         <% @user.errors.full_messages.each do |e| %>
             <div class="alert alert-danger" role="alert">
-  <%= e %>
-</div>
+                <%= e %>
+            </div>
         <% end %>
     <% end %>
 
