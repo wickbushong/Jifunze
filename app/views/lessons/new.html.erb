@@ -23,13 +23,13 @@
     <br>
     <div class="form-row">
         <div class="col">
-            <%= f.text_area :notes, class: "form-control", placeholder: "Description", rows: "5" %>
+            <%= f.text_area :notes, class: "form-control", placeholder: "Description (topics covered, grade level, materials required, etc.)", rows: "5" %>
         </div>
     </div>
     <br>
     <div class="form-row">
         <div class="col">
-            <%= f.submit %>
+            <%= f.submit class: "btn btn-success" %>
         </div>
     </div>
 <% end %>
