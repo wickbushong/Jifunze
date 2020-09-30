@@ -8,10 +8,22 @@
             <%= f.text_field :subject, class: "form-control", placeholder: "Subject" %>
         </div>
         <div class="col">
-            <%= f.number_field :duration, class: "form-control", placeholder: "Duration (in minutes)" %>
+            <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
         </div>
+    </div>
+    <br>
+    <div class="form-row">
         <div class="col">
             <%= f.datetime_field :time, class: "form-control datetimepicker-input"  %>
+        </div>
+        <div class="col">
+            <%= f.number_field :duration, class: "form-control", placeholder: "Duration (in minutes)" %>
+        </div>
+    </div>
+    <br>
+    <div class="form-row">
+        <div class="col">
+            <%= f.text_area :notes, class: "form-control", placeholder: "Description", rows: "5" %>
         </div>
     </div>
     <br>
