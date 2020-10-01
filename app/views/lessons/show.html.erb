@@ -6,7 +6,7 @@
         <hr class="my-4">
         <p><%= @lesson.notes %></p>
         <% if belongs_to_current_user(@lesson) %>
-            <a class="btn btn-primary btn-lg" href="<%= edit_lesson_path(@lesson) %>" role="button">edit lesson</a>
+            <a class="btn btn-success btn-lg" href="<%= edit_lesson_path(@lesson) %>" role="button">Edit Lesson</a>
         <% end %>
     </div>
 </div>
