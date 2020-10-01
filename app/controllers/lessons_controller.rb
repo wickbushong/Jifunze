@@ -11,14 +11,14 @@ class LessonsController < ApplicationController
         @lesson = Lesson.new(lesson_params)
         @lesson.instructor = current_user
         if @lesson.save
-            redirect_to user_lesson_path(current_user, @lesson)
+            redirect_to lesson_path(@lesson)
         else
             render :new
         end
     end
 
     def show
-
+        @lesson = Lesson.find_by(id: params[:id])
     end
 
     def index
