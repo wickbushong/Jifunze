@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :user_is_authenticated
     helper_method :belongs_to_current_user
+    helper_method :book_path
     before_action :require_login
 
     private
@@ -30,6 +31,10 @@ class ApplicationController < ActionController::Base
 
     def belongs_to_current_user(lesson)
         lesson.instructor_id == current_user.id
+    end
+
+    def book_path(lesson)
+        "/lessons/#{lesson.id}/book"
     end
 
 end
