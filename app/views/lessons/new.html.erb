@@ -2,8 +2,17 @@
 <br>
 <h2>New Lesson</h2>
 <br>
+
+<% if !@lesson.errors.messages.empty? %>
+        <% @lesson.errors.full_messages.each do |e| %>
+            <div class="alert alert-danger" role="alert">
+                <%= e %>
+            </div>
+        <% end %>
+<% end %>
+
 <%= form_for @lesson do |f| %>
-    
+
     <div class="form-row">
         <div class="col">
             <%= f.text_field :subject, class: "form-control", placeholder: "Subject" %>
