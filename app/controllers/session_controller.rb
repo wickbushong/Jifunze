@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-    skip_before_action :require_login
+    skip_before_action :require_login, only: [:new, :create, :create_from_facebook]
 
     def new
         if current_user
@@ -12,7 +12,7 @@ class SessionController < ApplicationController
         @user = User.find_by(name: params[:user][:name]) || User.new
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to user_root_redirect
+            user_root_redirect
         else
             @user.errors.messages[:invalid] = ["username or password"]
             render :new
@@ -26,7 +26,7 @@ class SessionController < ApplicationController
     end
 
     def destroy
-        session.delete :user_id
+        session.delete("user_id")
         redirect_to root_path
     end
 
