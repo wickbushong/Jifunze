@@ -44,7 +44,12 @@ class LessonsController < ApplicationController
         else
             render :edit
         end
+    end
 
+    def destroy
+        lesson = find_from_params
+        lesson.destroy
+        user_root_redirect
     end
 
     private

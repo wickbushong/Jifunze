@@ -3,4 +3,10 @@
 <h2>Edit Lesson</h2>
 <br>
 <%= render "form" %>
+<br>
+    <div class="form-row">
+        <div class="col">
+            <%= link_to "Delete Lesson", lesson_path(@lesson), method: "delete", class: "btn btn-danger" %>
+        </div>
+    </div>
 </div>
