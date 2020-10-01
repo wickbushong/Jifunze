@@ -18,7 +18,7 @@ class LessonsController < ApplicationController
     end
 
     def show
-        @lesson = Lesson.find_by(id: params[:id])
+        @lesson = find_from_params
     end
 
     def index
@@ -33,10 +33,17 @@ class LessonsController < ApplicationController
     end
 
     def edit
-        @lesson = Lesson.find_by(id: params[:id])
+        @lesson = find_from_params
+        user_root_redirect unless @lesson.instructor_id == current_user.id
     end
 
     def update
+        @lesson = find_from_params
+        if @lesson.update(lesson_params)
+            redirect_to lesson_path(@lesson)
+        else
+            render :edit
+        end
 
     end
 
@@ -44,6 +51,10 @@ class LessonsController < ApplicationController
 
     def lesson_params
         params.require(:lesson).permit(:subject, :location, :time, :duration, :notes)
+    end
+
+    def find_from_params
+        Lesson.find_by(id: params[:id])
     end
 
 end
