@@ -53,7 +53,13 @@ class LessonsController < ApplicationController
     end
 
     def book
-        binding.pry
+        @lesson = find_from_params
+        if !current_user.instructor
+            @lesson.student = current_user
+            @lesson.booked = true
+            @lesson.save
+        end
+        redirect_to lesson_path(@lesson)
     end
 
     private
