@@ -22,7 +22,7 @@ class SessionController < ApplicationController
     def create_from_facebook
         @user = find_or_create_from_facebook
         session[:user_id] = @user.id
-        redirect_to user_root_redirect
+        user_root_redirect
     end
 
     def destroy
