@@ -3,11 +3,11 @@
     <h1>Let's get you signed up!</h1>
 
     <% if @user.errors %>
-        <ul>
         <% @user.errors.full_messages.each do |e| %>
-            <li><%= e %></li>
+            <div class="alert alert-danger" role="alert">
+                <%= e %>
+            </div>
         <% end %>
-        </ul>
     <% end %>
 
     <%= form_for @user, url: '/signup' do |f| %>
