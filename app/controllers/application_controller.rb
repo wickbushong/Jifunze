@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     # before_action :verified_user
     helper_method :current_user
     helper_method :user_is_authenticated
+    helper_method :belongs_to_current_user
     before_action :require_login
 
     private
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
         else
             redirect_to user_path(current_user)
         end
+    end
+
+    def belongs_to_current_user(lesson)
+        lesson.instructor_id == current_user.id
     end
 
 end
