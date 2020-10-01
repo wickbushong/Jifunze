@@ -32,6 +32,14 @@ class LessonsController < ApplicationController
         end
     end
 
+    def edit
+        @lesson = Lesson.find_by(id: params[:id])
+    end
+
+    def update
+
+    end
+
     private
 
     def lesson_params
