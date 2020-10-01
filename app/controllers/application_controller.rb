@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     # before_action :verified_user
     helper_method :current_user
     helper_method :user_is_authenticated
-    # before_action :require_login
+    before_action :require_login
 
     private
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
             redirect_to user_lessons_path(current_user)
         else
             redirect_to user_path(current_user)
-        end   
+        end
     end
 
 end
