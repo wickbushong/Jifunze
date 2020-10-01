@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :lessons
+
+  post 'lessons/:id/book' => 'lessons#book'
+
 end

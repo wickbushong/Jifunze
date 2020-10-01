@@ -52,10 +52,14 @@ class LessonsController < ApplicationController
         user_root_redirect
     end
 
+    def book
+        binding.pry
+    end
+
     private
 
     def lesson_params
-        params.require(:lesson).permit(:subject, :location, :time, :duration, :notes)
+        params.require(:lesson).permit(:subject, :location, :time, :duration, :notes, :student_id)
     end
 
     def find_from_params
