@@ -8,7 +8,13 @@ class LessonsController < ApplicationController
     end
 
     def create
-        binding.pry
+        @lesson = Lesson.new(lesson_params)
+        @lesson.instructor = current_user
+        if @lesson.save
+            redirect_to user_lesson_path(current_user, @lesson)
+        else
+            render :new
+        end
     end
 
     def show
@@ -24,6 +30,12 @@ class LessonsController < ApplicationController
         else
             @lessons = Lesson.available
         end
+    end
+
+    private
+
+    def lesson_params
+        params.require(:lesson).permit(:subject, :location, :time, :duration, :notes)
     end
 
 end
