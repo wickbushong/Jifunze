@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'session#create_from_facebook'
 
   resources :users, only: [:show] do
-    resources :lessons, only: [:show, :index]
+    resources :lessons, only: [:show, :index, :new, :create]
   end
 
   resources :lessons
