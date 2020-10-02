@@ -2,7 +2,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1 class="display-4"><%= @lesson.subject %> with <%= @lesson.instructor.name %></h1>
-        <p class="lead"><%= @lesson.time_slot_display %><br>@ <%= @lesson.location %></p>
+        <p class="lead"><%= time_slot_display(@lesson) %><br>@ <%= @lesson.location %></p>
         <hr class="my-4">
         <p><%= @lesson.notes %></p>
         <% if belongs_to_current_user(@lesson) %>

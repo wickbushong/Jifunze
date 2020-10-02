@@ -11,9 +11,4 @@ class Lesson < ApplicationRecord
     belongs_to :instructor, class_name: "User"
     belongs_to :student, class_name: "User", optional: true
 
-    def time_slot_display
-        finish = (time + 60*duration).strftime("%l:%M %p")
-        time.strftime("%A, %b %d %Y from %l:%M %p to #{finish}")
-    end
-
 end
