@@ -1,7 +1,10 @@
 <br>
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4"><%= @lesson.subject %> with <%= @lesson.instructor.name %></h1>
+        <h1 class="display-4"><%= @lesson.subject %> with <%= @lesson.instructor.name %> <% if @lesson.booked %>
+            <span class="badge badge-success">booked</span>
+        <% end %>
+        </h1>
         <p class="lead"><%= time_slot_display(@lesson) %><br>@ <%= @lesson.location %></p>
         <hr class="my-4">
         <p><%= @lesson.notes %></p>
