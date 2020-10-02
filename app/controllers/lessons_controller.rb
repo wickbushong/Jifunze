@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
     def create
         @lesson = Lesson.new(lesson_params)
         @lesson.instructor = current_user
+        @lesson.booked = true if @lesson.student
         if @lesson.save
             redirect_to lesson_path(@lesson)
         else
