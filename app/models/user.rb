@@ -17,4 +17,8 @@ class User < ApplicationRecord
     has_many :taken_lessons, foreign_key: "student_id", class_name: "Lesson"
     has_many :instructors, through: :taken_lessons
 
+    def student?
+        !self.instructor
+    end
+
 end
