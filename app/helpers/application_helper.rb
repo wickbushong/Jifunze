@@ -12,5 +12,15 @@ module ApplicationHelper
             link_to "book lesson", book_path(lesson), method: "post", class: "btn btn-success btn-lg"
         end
     end
+
+    def status(lesson)
+        if lesson.time.past?
+            "completed"
+        elsif lesson.booked
+            "booked"
+        else
+            "available"
+        end
+    end
     
 end
