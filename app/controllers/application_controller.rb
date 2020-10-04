@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :user_is_authenticated
     helper_method :belongs_to_current_user
     helper_method :book_path
+    helper_method :user_is_instructor
     before_action :require_login
 
     private
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
     
     def user_is_authenticated
         !!current_user
+    end
+
+    def user_is_instructor
+        current_user.instructor
     end
 
     def require_login

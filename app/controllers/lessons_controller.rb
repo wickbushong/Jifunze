@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-    before_action :set_lesson only: [:show, :edit, :update, :destroy, :book]
+    before_action :set_lesson, only: [:show, :edit, :update, :destroy, :book]
 
     def new
         if !current_user.instructor

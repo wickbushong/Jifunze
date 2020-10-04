@@ -1,0 +1,18 @@
+<ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lessons
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="<%= lessons_path %>">Community Board</a>
+          <a class="dropdown-item" href="<%= user_path(current_user) %>">My Lessons</a>
+          <a class="dropdown-item" href="<%= user_lessons_path(current_user) %>">My Available Lessons</a>
+          <div class="dropdown-divider"></div>
+          <% if current_user.instructor %>
+            <a class="dropdown-item" href="<%= new_user_lesson_path(current_user) %>">New Lesson</a>
+          <% end %>
+          
+        </div>
+      </li>
+</ul>

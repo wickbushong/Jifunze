@@ -1,29 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="<%= root_path %>">Jifunze</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
 
   <% if user_is_authenticated %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Lessons
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          
-          <a class="dropdown-item" href="<%= lessons_path %>">Community Board</a>
-          <a class="dropdown-item" href="<%= user_path(current_user) %>">My Lessons</a>
-          <a class="dropdown-item" href="<%= user_lessons_path(current_user) %>">My Available Lessons</a>
-          <div class="dropdown-divider"></div>
-          <% if current_user.instructor %>
-            <a class="dropdown-item" href="<%= new_user_lesson_path(current_user) %>">New Lesson</a>
-          <% end %>
-          
-        </div>
-      </li>
-    </ul>
+    <% if user_is_instructor %>
+      <%= render "layouts/instructor_dropdown" %>
+    <% else %>
+      <%= render "layouts/student_dropdown" %>
+    <% end %>
     
     <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-outline-success" %>
   </div>
