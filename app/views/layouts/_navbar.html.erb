@@ -12,7 +12,7 @@
           Lessons
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">My Booked Lessons</a>
+          <a class="dropdown-item" href="<%= user_path(current_user) %>">My Lessons</a>
           <a class="dropdown-item" href="<%= user_lessons_path(current_user) %>">My Available Lessons</a>
           <div class="dropdown-divider"></div>
           <% if current_user.instructor %>

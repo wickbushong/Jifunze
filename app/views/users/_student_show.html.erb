@@ -4,8 +4,8 @@
             <th class="text-center" scope="col">Subject</th>
             <th class="text-center" scope="col">Instructor</th>
             <th class="text-center" scope="col">Time</th>
-            <th class="text-center" scope="col">Info</th>
             <th class="text-center" scope="col">Status</th>
+            <th class="text-center" scope="col">Info</th>
         </tr>
     </thead>
     <tbody>
@@ -14,9 +14,9 @@
             <th class="text-center" scope="row"><%= l.subject %></th>
             <td class="text-center"><%= link_to l.instructor.name, user_lessons_path(l.instructor)%></td>
             <td class="text-center"><%= l.time.strftime("%A, %d %b %Y at %l:%M %p %Z") %></td>
+            <td class="text-center"><h2><span class="badge badge-success ba"><%= status(l) %></span></h2></td>
             <td class="text-center"><%= link_to "tell me more", lesson_path(l), class: "btn btn-outline-success" %>
             </td>
-            <td class="text-center"><h3><span class="badge badge-success ba"><%= status(l) %></span></h3></td>
         </tr>
         <% end %>
     </tbody>
