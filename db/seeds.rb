@@ -14,8 +14,8 @@ User.create(
 )
 
 User.create(
-    name: "wick",
-    email: "wickbushong@gmail.com",
+    name: "bill_nye_tsg",
+    email: "bill@science.com",
     password: "password",
     instructor: true
 )

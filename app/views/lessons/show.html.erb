@@ -4,7 +4,13 @@
         <h1 class="display-4"><%= @lesson.subject %> with <%= @lesson.instructor.name %> 
             <span class="badge badge-success"><%= status(@lesson) %></span>
         </h1>
-        <p class="lead"><%= time_slot_display(@lesson) %><br>@ <%= @lesson.location %></p>
+        <p class="lead"><%= time_slot_display(@lesson) %>
+        <br>
+        @ <%= @lesson.location %>
+        <% if @lesson.student %>
+        <br>
+        student: <%= name_link_or_nil(@lesson.student) %></p>
+        <% end %>
         <hr class="my-4">
         <p><%= @lesson.notes %></p>
         <%= lesson_show_page_button(@lesson) %>

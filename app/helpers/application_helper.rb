@@ -16,7 +16,7 @@ module ApplicationHelper
     def status(lesson)
         if lesson.time.past?
             "completed"
-        elsif lesson.booked
+        elsif lesson.student
             "booked"
         else
             "available"

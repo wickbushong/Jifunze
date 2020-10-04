@@ -11,8 +11,8 @@ class LessonsController < ApplicationController
     def create
         @lesson = Lesson.new(lesson_params)
         @lesson.instructor = current_user
-        @lesson.booked = true if @lesson.student
         if @lesson.save
+            change_status
             redirect_to lesson_path(@lesson)
         else
             render :new
@@ -40,6 +40,7 @@ class LessonsController < ApplicationController
 
     def update
         if @lesson.update(lesson_params)
+            change_status
             redirect_to lesson_path(@lesson)
         else
             render :edit
@@ -54,7 +55,7 @@ class LessonsController < ApplicationController
     def book
         if !current_user.instructor
             @lesson.student = current_user
-            @lesson.booked = true
+            change_status
             @lesson.save
         end
         redirect_to lesson_path(@lesson)
@@ -70,6 +71,13 @@ class LessonsController < ApplicationController
         @lesson = Lesson.find_by(id: params[:id])
         if !@lesson
             redirect_to lessons_path
+        end
+    end
+
+    def change_status
+        if @lesson.student
+            @lesson.booked = true
+            @lesson.save
         end
     end
 
