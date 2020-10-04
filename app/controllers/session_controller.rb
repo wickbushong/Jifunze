@@ -3,7 +3,7 @@ class SessionController < ApplicationController
 
     def new
         if current_user
-            redirect_to user_root_redirect
+            redirect_to user_path(current_user)
         end
         @user = User.new
     end
@@ -12,7 +12,7 @@ class SessionController < ApplicationController
         @user = User.find_by(name: params[:user][:name]) || User.new
         if @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            user_root_redirect
+            redirect_to user_path(current_user)
         else
             @user.errors.messages[:invalid] = ["username or password"]
             render :new
@@ -22,7 +22,7 @@ class SessionController < ApplicationController
     def create_from_facebook
         @user = find_or_create_from_facebook
         session[:user_id] = @user.id
-        user_root_redirect
+        redirect_to user_path(current_user)
     end
 
     def destroy

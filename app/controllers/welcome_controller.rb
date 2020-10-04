@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
     def home
         if user_is_authenticated
-            user_root_redirect
+            redirect_to user_path(current_user)
         end
     end
 

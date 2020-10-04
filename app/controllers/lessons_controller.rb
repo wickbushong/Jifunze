@@ -35,7 +35,7 @@ class LessonsController < ApplicationController
 
     def edit
         @lesson = find_from_params
-        user_root_redirect unless @lesson.instructor_id == current_user.id
+        redirect_to user_path(current_user) unless @lesson.instructor_id == current_user.id
     end
 
     def update
@@ -50,7 +50,7 @@ class LessonsController < ApplicationController
     def destroy
         lesson = find_from_params
         lesson.destroy
-        user_root_redirect
+        redirect_to user_path(current_user)
     end
 
     def book
