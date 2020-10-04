@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+    before_action :set_lesson only: [:show, :edit, :update, :destroy, :book]
 
     def new
         if !current_user.instructor
@@ -19,7 +20,7 @@ class LessonsController < ApplicationController
     end
 
     def show
-        @lesson = find_from_params
+        
     end
 
     def index
@@ -34,12 +35,10 @@ class LessonsController < ApplicationController
     end
 
     def edit
-        @lesson = find_from_params
         redirect_to user_path(current_user) unless @lesson.instructor_id == current_user.id
     end
 
     def update
-        @lesson = find_from_params
         if @lesson.update(lesson_params)
             redirect_to lesson_path(@lesson)
         else
@@ -48,13 +47,11 @@ class LessonsController < ApplicationController
     end
 
     def destroy
-        lesson = find_from_params
-        lesson.destroy
+        @lesson.destroy
         redirect_to user_path(current_user)
     end
 
     def book
-        @lesson = find_from_params
         if !current_user.instructor
             @lesson.student = current_user
             @lesson.booked = true
@@ -69,8 +66,11 @@ class LessonsController < ApplicationController
         params.require(:lesson).permit(:subject, :location, :time, :duration, :notes, :student_id)
     end
 
-    def find_from_params
-        Lesson.find_by(id: params[:id])
+    def set_lesson
+        @lesson = Lesson.find_by(id: params[:id])
+        if !@lesson
+            redirect_to lessons_path
+        end
     end
 
 end
