@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
   resources :lessons
 
-  post 'lessons/:id/book' => 'lessons#book'
+  post 'lessons/:id/book' => 'lessons#book', as: "book"
 
 end
