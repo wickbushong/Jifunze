@@ -2,13 +2,12 @@ class LessonsController < ApplicationController
     before_action :set_lesson, only: [:show, :edit, :update, :destroy, :book]
 
     def new
-        if !current_user.instructor
-            redirect_to lessons_path
-        end
+        protect_new_lesson
         @lesson = Lesson.new
     end
 
     def create
+        protect_new_lesson
         @lesson = Lesson.new(lesson_params)
         @lesson.instructor = current_user
         if @lesson.save
@@ -35,10 +34,11 @@ class LessonsController < ApplicationController
     end
 
     def edit
-        redirect_to user_path(current_user) unless @lesson.instructor_id == current_user.id
+        protect_lesson
     end
 
     def update
+        protect_lesson
         if @lesson.update(lesson_params)
             change_status
             redirect_to lesson_path(@lesson)
@@ -78,6 +78,18 @@ class LessonsController < ApplicationController
         if @lesson.student
             @lesson.booked = true
             @lesson.save
+        end
+    end
+
+    def protect_lesson
+        if @lesson.instructor_id != current_user.id
+            redirect_to lesson_path(@lesson)
+        end
+    end
+
+    def protect_new_lesson
+        if params[:user_id] && current_user.id != params[:user_id] || !current_user.instructor
+            redirect_to lessons_path
         end
     end
 
