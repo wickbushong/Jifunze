@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
     before_action :set_lesson, only: [:show, :edit, :update, :destroy, :book]
-    before_action :protect_new_lesson, only: [:new, :create]
+    # before_action :protect_new_lesson, only: [:new, :create]
     before_action :protect_lesson, only: [:edit, :update]
 
 
@@ -59,6 +59,14 @@ class LessonsController < ApplicationController
             @lesson.save
         end
         redirect_to lesson_path(@lesson)
+    end
+
+    def physics
+        @lessons = Lesson.available.select do |l| 
+            l.subject.include?("hysics")
+        end
+        render "lessons/physics"
+
     end
 
     private
