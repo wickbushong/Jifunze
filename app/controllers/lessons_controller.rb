@@ -1,13 +1,14 @@
 class LessonsController < ApplicationController
     before_action :set_lesson, only: [:show, :edit, :update, :destroy, :book]
+    before_action :protect_new_lesson, only: [:new, :create]
+    before_action :protect_lesson, only: [:edit, :update]
+
 
     def new
-        protect_new_lesson
         @lesson = Lesson.new
     end
 
     def create
-        protect_new_lesson
         @lesson = Lesson.new(lesson_params)
         @lesson.instructor = current_user
         if @lesson.save
@@ -34,11 +35,10 @@ class LessonsController < ApplicationController
     end
 
     def edit
-        protect_lesson
+
     end
 
     def update
-        protect_lesson
         if @lesson.update(lesson_params)
             change_status
             redirect_to lesson_path(@lesson)
